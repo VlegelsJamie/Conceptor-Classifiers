@@ -1,0 +1,6 @@
+liac_arff >= 2.5.0
+matplotlib >= 3.5.2
+numpy >= 1.23.1
+scikit_learn >= 1.1.1
+scikit_optimize >= 0.9.0
+scipy >= 1.9.0
