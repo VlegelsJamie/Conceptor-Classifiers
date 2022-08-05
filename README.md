@@ -26,9 +26,9 @@ Conceptor Classifiers
 │   optimize_aperture.py            # Aperture optimization script
 │   optimize_params.py              # Bayesian Optimization script   
 │
-├───figures                         # Generated figures
-│
 ├───LSST dataset                    # LSST dataset
+│
+├───figures                         # Generated figures
 │                    
 ├───models                      
 │   │   conceptor.py                # Conceptors
@@ -44,9 +44,9 @@ Conceptor Classifiers
 │   │   param_spaces.py             # Parameter spaces for Bayesian optimization
 │        
 └───utils
+    │   IO.py                       # Handle classifier selection   
     │   data.py                     # Dataloader script
     │   figures.py                  # Figure generator
-    │   IO.py                       # Handle classifier selection   
 ```
 
 ## Requirements
