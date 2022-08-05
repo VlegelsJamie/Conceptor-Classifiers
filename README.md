@@ -53,8 +53,8 @@ Conceptor Classifiers
 To install, please run the following commands ([Python >= 3.10](https://www.python.org/downloads/)):
 
 ```setup
-git clone
-cd Conceptor Classifiers
+git clone https://github.com/VlegelsJamie/Conceptor-Classifiers
+cd Conceptor-Classifiers
 pip install -r requirements.txt
 ```
 
