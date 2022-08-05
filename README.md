@@ -4,12 +4,13 @@
 This repository is the official implementation of the Bachelor's thesis [Multivariate Time Series Classification Using Conceptors: Exploring Methods Using Astronomical Object Data](). It implements the following lightweight time series conceptor classifiers built upon Echo State Networks (ESNs), as well as two standard ESN classifiers:
 ```
 - C_standard
+- C_reduced
 - C_combined
-- C_timestep
+- C_tubes
 - C_reservoir
 - C_forecast
-- ESN_forecast
 - ESN_class_label
+- ESN_forecast
 ```
 
 These classifiers were optimized and evaluated on the LSST dataset, but can also be run by defining your own parameters within the [classifier_params.py](params/classifier_params.py) module.
@@ -93,7 +94,7 @@ The models are evaluated over hyperparameter spaces defined in the
 
 ## Aperture Optimization
 
-To optimize individual aperture values of the `C_combined` classifier, run:
+To optimize individual aperture values of the `C_reduced` classifier, run:
 
 ```cross-validate
 python optimize_aperture.py --num_iters  # Number of function evaluations of the Bayesian optimizer  
