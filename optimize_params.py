@@ -15,8 +15,6 @@ from skopt import gp_minimize
 from utils.IO import get_classifier, print_best_parameters
 from utils.data import get_train_test_split
 
-warnings.filterwarnings('ignore')
-
 
 def get_args():
     """ Get command line arguments.
@@ -48,7 +46,8 @@ def optimize_params(model, param_space, X_train, y_train, num_iters, num_folds):
         model.set_params(**params)
         return -np.mean(cross_val_score(model, X_train, y_train, cv=StratifiedKFold(n_splits=num_folds)))
 
-    res_gp = gp_minimize(objective, param_space, n_calls=num_iters, random_state=42, noise=0.04, verbose=True)
+    res_gp = gp_minimize(objective, param_space, n_calls=num_iters, random_state=42, noise=0.04, acq_func="LCB",
+                         acq_optimizer="sampling", verbose=True)
 
     print_best_parameters(res_gp)
 
@@ -60,7 +59,7 @@ if __name__ == '__main__':
 
     X_train, y_train, X_test, y_test = get_train_test_split()
 
-    model, _, param_space = get_classifier(args.classifier)
+    model, param_space = get_classifier(args.classifier)
     num_iters = args.num_iters
     num_folds = args.num_folds
 

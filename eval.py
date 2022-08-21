@@ -20,7 +20,7 @@ def get_args():
     return args
 
 
-def eval(model, params, X_train, y_train, X_test, y_test):
+def eval(model, X_train, y_train, X_test, y_test):
     """
     Function to approximate the accuracy of a classifier by averaging performance over
     multiple trials with randomly initialized ESN weights.
@@ -39,7 +39,6 @@ def eval(model, params, X_train, y_train, X_test, y_test):
     nr_trials = args.num_trials
     test_accs = np.zeros(nr_trials)
 
-    model.set_params(**params)
     for trial in range(nr_trials):
         model.fit(X_train, y_train)
         score = model.score(X_test, y_test)
@@ -58,6 +57,6 @@ if __name__ == '__main__':
 
     X_train, y_train, X_test, y_test = get_train_test_split()
 
-    model, params, _ = get_classifier(args.classifier)
+    model, _ = get_classifier(args.classifier)
 
-    eval(model, params, X_train, y_train, X_test, y_test)
+    eval(model, X_train, y_train, X_test, y_test)

@@ -12,7 +12,7 @@ from models.classifiers.esn_classifier import EsnClassifier
 from models.conceptor import get_C, get_evidence, morph_C
 
 
-class CEsnClassifier(EsnClassifier):
+class CClassifier(EsnClassifier):
     """ Class representing the conceptor classifier. """
 
     def __init__(self, method='combined', mu=0.5, aps_pos=None, aps_neg=None, **kwargs):
