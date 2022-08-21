@@ -4,12 +4,13 @@
 This repository is the official implementation of the Bachelor's thesis [Multivariate Time Series Classification Using Conceptors: Exploring Methods Using Astronomical Object Data](). It implements the following lightweight time series conceptor classifiers built upon Echo State Networks (ESNs), as well as two standard ESN classifiers:
 ```
 - C_standard
+- C_reduced
 - C_combined
-- C_timestep
+- C_tubes
 - C_reservoir
 - C_forecast
-- ESN_forecast
 - ESN_class_label
+- ESN_forecast
 ```
 
 These classifiers were optimized and evaluated on the LSST dataset, but can also be run by defining your own parameters within the [classifier_params.py](params/classifier_params.py) module.
@@ -25,9 +26,9 @@ Conceptor Classifiers
 │   optimize_aperture.py            # Aperture optimization script
 │   optimize_params.py              # Bayesian Optimization script   
 │
-├───figures                         # Generated figures
-│
 ├───LSST dataset                    # LSST dataset
+│
+├───figures                         # Generated figures
 │                    
 ├───models                      
 │   │   conceptor.py                # Conceptors
@@ -43,9 +44,9 @@ Conceptor Classifiers
 │   │   param_spaces.py             # Parameter spaces for Bayesian optimization
 │        
 └───utils
+    │   IO.py                       # Handle classifier selection   
     │   data.py                     # Dataloader script
     │   figures.py                  # Figure generator
-    │   IO.py                       # Handle classifier selection   
 ```
 
 ## Requirements
@@ -53,8 +54,8 @@ Conceptor Classifiers
 To install, please run the following commands ([Python >= 3.10](https://www.python.org/downloads/)):
 
 ```setup
-git clone
-cd Conceptor Classifiers
+git clone https://github.com/VlegelsJamie/Conceptor-Classifiers
+cd Conceptor-Classifiers
 pip install -r requirements.txt
 ```
 
@@ -93,7 +94,7 @@ The models are evaluated over hyperparameter spaces defined in the
 
 ## Aperture Optimization
 
-To optimize individual aperture values of the `C_combined` classifier, run:
+To optimize individual aperture values of the `C_reduced` classifier, run:
 
 ```cross-validate
 python optimize_aperture.py --num_iters  # Number of function evaluations of the Bayesian optimizer  
