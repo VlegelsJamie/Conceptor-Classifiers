@@ -6,11 +6,11 @@ This repository is the official implementation of the Bachelor's thesis [Multiva
 - C_standard
 - C_reduced
 - C_combined
-- C_tubes
+- C_timestep
 - C_reservoir
 - C_forecast
-- ESN_class_label
 - ESN_forecast
+- ESN_class_label
 ```
 
 These classifiers were optimized and evaluated on the LSST dataset, but can also be run by defining your own parameters within the [classifier_params.py](params/classifier_params.py) module.
@@ -26,9 +26,9 @@ Conceptor Classifiers
 │   optimize_aperture.py            # Aperture optimization script
 │   optimize_params.py              # Bayesian Optimization script   
 │
-├───LSST dataset                    # LSST dataset
-│
 ├───figures                         # Generated figures
+│
+├───LSST dataset                    # LSST dataset
 │                    
 ├───models                      
 │   │   conceptor.py                # Conceptors
@@ -44,9 +44,9 @@ Conceptor Classifiers
 │   │   param_spaces.py             # Parameter spaces for Bayesian optimization
 │        
 └───utils
-    │   IO.py                       # Handle classifier selection   
     │   data.py                     # Dataloader script
     │   figures.py                  # Figure generator
+    │   IO.py                       # Handle classifier selection   
 ```
 
 ## Requirements
@@ -54,8 +54,8 @@ Conceptor Classifiers
 To install, please run the following commands ([Python >= 3.10](https://www.python.org/downloads/)):
 
 ```setup
-git clone https://github.com/VlegelsJamie/Conceptor-Classifiers
-cd Conceptor-Classifiers
+git clone
+cd Conceptor Classifiers
 pip install -r requirements.txt
 ```
 
@@ -81,7 +81,7 @@ The models are run using hyperparameters defined in the
 To optimize hyperparameters of a classifier using Bayesian optimization, run:
 
 ```cross-validate
-python optimize_params.py --classifier C_standard  # Classifier to evaluate (see above for options)
+python optimize_params.py --classifier C_standard  # Classifier to optimize (see above for options)
                           --num_iters 100          # Number of function evaluations of the Bayesian optimizer
                           --num_folds 5            # Number of cross-validation folds
 ```
@@ -94,15 +94,16 @@ The models are evaluated over hyperparameter spaces defined in the
 
 ## Aperture Optimization
 
-To optimize individual aperture values of the `C_reduced` classifier, run:
+To optimize individual aperture values of a conceptor classifier, run:
 
 ```cross-validate
-python optimize_aperture.py --num_iters  # Number of function evaluations of the Bayesian optimizer  
-                            --num_folds  # Number of cross-validation folds
+python optimize_aperture.py --classifier C_standard  # Classifier to optimize aperture values for (see above for options)
+                            --num_iters 200          # Number of function evaluations of the Bayesian optimizer  
+                            --num_folds 5            # Number of cross-validation folds
 ```
 
 This will allow you to perform Bayesian optimization as described previously, but over 
-individual aperture values with fixed classifier parameters. 
+individual aperture values with fixed classifier parameters. This is limited to the ```C_standard```, ```C_reduced```, and ```C_combined``` classifiers.
 
-Both the optimal hyperparameters for evaluation as well as the hyperparameter evaluation space 
+Both the optimal hyperparameters for evaluation as well as the hyperparameter evaluation spaces 
 can be found in the [classifier_params.py](params/classifier_params.py) and [param_spaces.py](params/param_spaces.py) modules.
