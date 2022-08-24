@@ -11,7 +11,7 @@ from models.classifiers.base_esn_classifier import BaseEsnClassifier
 class EsnClassifier(BaseEsnClassifier):
     """ Class representing an Echo State Network classifier. """
 
-    def __init__(self, method='class_label', **kwargs):
+    def __init__(self, method='one_hot', **kwargs):
         """ Initialize model parameters.
 
         :param method: Esn classification method.
@@ -35,7 +35,7 @@ class EsnClassifier(BaseEsnClassifier):
         if self.method == 'forecast':
             self.fit_signal_prediction(train_states, X_train, y_train)
 
-        if self.method == 'class_label':
+        if self.method == 'one_hot':
             train_states = np.mean(train_states, axis=1)
             y_train = np.eye(self.nr_classes)[y_train]
             self.W_out = super().get_W_out(train_states, y_train)
@@ -75,7 +75,7 @@ class EsnClassifier(BaseEsnClassifier):
         if self.method == 'forecast':
             pred = self.predict_signal(test_states, X_test)
 
-        if self.method == 'class_label':
+        if self.method == 'one_hot':
             test_states = np.mean(test_states, axis=1)
             pred = np.inner(test_states, self.W_out)
 

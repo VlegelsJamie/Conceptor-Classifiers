@@ -4,17 +4,14 @@ optimization with fixed classifier parameters. Optimized with fixed train states
 """
 
 import argparse
-import warnings
 
 import numpy as np
 from sklearn.model_selection import cross_val_score, StratifiedKFold
 from skopt import gp_minimize
 from skopt.utils import use_named_args
 
-from params import classifier_params, param_spaces
 from utils.IO import print_best_parameters, get_classifier
 from utils.data import get_train_test_split
-from models.classifiers.C_classifier import CClassifier
 
 
 def get_args():

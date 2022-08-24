@@ -43,8 +43,7 @@ def eval(model, X_train, y_train, X_test, y_test):
         model.fit(X_train, y_train)
         score = model.score(X_test, y_test)
         test_accs[trial] = score
-
-        #print(f'Trial {trial} score: {score}')
+        print(f'Trial {trial} score: {score}')
 
     print(f'Mean test score: {np.mean(test_accs)}')
     print(f'Std test score: {np.std(test_accs)}')

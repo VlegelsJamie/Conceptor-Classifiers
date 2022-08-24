@@ -109,7 +109,7 @@ def plot_sota_graph():
 
     height = [67.17, 66.82, 65.93, 65.63, 64.69, 64.21, 63.62, 63.15, 60.28, 59.05, 58.15, 57.82, 56.96, 56.17, 54.76,
               53.84, 53.12, 50.58, 49.57, 46.33, 43.62, 42.94, 34.31, 33.97]
-    bars = ('$ESN_{\mathsf{ClassLabel}}$', '$C_{\mathsf{Reduced}}$', '$C_{\mathsf{Combined}}$',
+    bars = ('$ESN_{\mathsf{One-hot}}$', '$C_{\mathsf{Reduced}}$', '$C_{\mathsf{Combined}}$',
             '$C_{\mathsf{Forecast}}$', '$C_{\mathsf{Tubes}}$', '$C_{\mathsf{Reservoir}}$', 'MUSE', 'ROCKET', 'mrseql',
             '$ESN_{\mathsf{Forecast}}$', 'gRSF', 'STC', 'DTW_A', 'CIF', 'DTW_D', 'HC', '$C_{\mathsf{Standard}}$',
             'RISE', 'DTW_I', 'TapNet', 'CBOSS', 'ResNet', 'TSF', 'IT')

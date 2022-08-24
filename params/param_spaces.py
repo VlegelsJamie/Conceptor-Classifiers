@@ -50,12 +50,12 @@ ESN_forecast_space = [Real(0.01, 2.0, prior='uniform', name='spectral_radius'),
                       Integer(5, 500, 'uniform', name='reservoir_dim'),
                       Real(0.0001, 10.0, prior='log-uniform', name='beta')]
 
-ESN_class_label_space = [Real(0.01, 2.0, prior='uniform', name='spectral_radius'),
-                         Real(0.01, 2.0, prior='uniform', name='W_in_scale'),
-                         Real(0.01, 2.0, prior='uniform', name='bias_scale'),
-                         Real(0.01, 1.0, prior='uniform', name='leaking_rate'),
-                         Integer(5, 500, 'uniform', name='reservoir_dim'),
-                         Real(0.0001, 10.0, prior='log-uniform', name='beta')]
+ESN_one_hot_space = [Real(0.01, 2.0, prior='uniform', name='spectral_radius'),
+                     Real(0.01, 2.0, prior='uniform', name='W_in_scale'),
+                     Real(0.01, 2.0, prior='uniform', name='bias_scale'),
+                     Real(0.01, 1.0, prior='uniform', name='leaking_rate'),
+                     Integer(5, 500, 'uniform', name='reservoir_dim'),
+                     Real(0.0001, 10.0, prior='log-uniform', name='beta')]
 
 C_standard_aperture_space = [Real(3.5, 10.5, prior='log-uniform', name='pa1'),
                              Real(26.0, 78.0, prior='log-uniform', name='pa2'),

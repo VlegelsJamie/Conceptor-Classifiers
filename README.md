@@ -10,7 +10,7 @@ This repository is the official implementation of the Bachelor's thesis [Multiva
 - C_reservoir
 - C_forecast
 - ESN_forecast
-- ESN_class_label
+- ESN_one_hot
 ```
 
 These classifiers were optimized and evaluated on the LSST dataset, but can also be run by defining your own parameters within the [classifier_params.py](params/classifier_params.py) module.

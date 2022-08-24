@@ -32,9 +32,9 @@ def get_classifier(classifier: str):
         case 'C_forecast':
             return CClassifier(method='forecast', **classifier_params.C_forecast), param_spaces.C_forecast_space
 
-        case 'ESN_class_label':
-            return (EsnClassifier(method='class_label', **classifier_params.ESN_class_label),
-                    param_spaces.ESN_class_label_space)
+        case 'ESN_one_hot':
+            return (EsnClassifier(method='one_hot', **classifier_params.ESN_one_hot),
+                    param_spaces.ESN_one_hot_space)
 
         case 'ESN_forecast':
             return EsnClassifier(method='forecast', **classifier_params.ESN_forecast), param_spaces.ESN_forecast_space

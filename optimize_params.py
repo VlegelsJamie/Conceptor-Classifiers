@@ -4,7 +4,6 @@ optimization.
 """
 
 import argparse
-import warnings
 
 import numpy as np
 from sklearn.model_selection import StratifiedKFold

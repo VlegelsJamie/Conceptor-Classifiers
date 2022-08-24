@@ -41,12 +41,12 @@ C_forecast = {'spectral_radius': 0.67,
               'reservoir_dim': 100,
               'beta': 0.0001}
 
-ESN_class_label = {'spectral_radius': 1.33,
-                   'W_in_scale': 1.93,
-                   'bias_scale': 1.77,
-                   'leaking_rate': 0.73,
-                   'reservoir_dim': 500,
-                   'beta': 0.18}
+ESN_one_hot = {'spectral_radius': 1.33,
+               'W_in_scale': 1.93,
+               'bias_scale': 1.77,
+               'leaking_rate': 0.73,
+               'reservoir_dim': 500,
+               'beta': 0.18}
 
 ESN_forecast = {'spectral_radius': 1.57,
                 'W_in_scale': 1.63,
